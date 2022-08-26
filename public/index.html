@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listbox (Select)</title>
+    <link rel="stylesheet" href="./build/tailwind.css" />
+    <script src="//unpkg.com/alpinejs" defer></script>
+  </head>
+  <body class="h-screen bg-gradient-to-r from-purple-600 to-indigo-500 flex justify-center items-start mt-12">
+    <div class="w-2/5 p-2 rounded-lg bg-white flex flex-col">
+      <div x-data="{ isOpen: false }">
+        <button
+          @click="isOpen = !isOpen"
+          class="flex justify-between items-center bg-purple-200 px-4 py-2 rounded-md text-purple-800 w-full"
+        >
+          <span>What is your refund policy?</span>
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2.5"
+              stroke="currentColor"
+              class="w-5 h-5 transition-transform duration-200"
+              :class="isOpen ? 'rotate-180' : ''"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+            </svg>
+          </span>
+        </button>
+
+        <div
+          x-show="isOpen"
+          x-transition.delay.50ms
+          x-transition:leave.duration.150ms
+          class="px-4 pt-4 pb-2 text-gray-500"
+        >
+          If you're unhappy with your purchase for any reason, email us within 90 days and we'll refund you in full, no
+          questions asked.
+        </div>
+      </div>
+
+      <div x-data="{ isOpen: false }" class="mt-2">
+        <button
+          @click="isOpen = !isOpen"
+          class="flex justify-between items-center bg-purple-200 px-4 py-2 rounded-md text-purple-800 w-full"
+        >
+          <span>Do you offer technical support?</span>
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2.5"
+              stroke="currentColor"
+              class="w-5 h-5"
+              :class="isOpen ? 'rotate-180' : ''"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+            </svg>
+          </span>
+        </button>
+
+        <div
+          x-show="isOpen"
+          x-transition.delay.50ms
+          x-transition:leave.duration.150ms
+          class="px-4 pt-4 pb-2 text-gray-500"
+        >
+          No.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
